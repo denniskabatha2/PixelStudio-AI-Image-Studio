@@ -1,45 +1,43 @@
-# [Project name]
+# PixelStudio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A private AI image studio for the user's local Atomic Agent diffusion models.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Managed Replit preview: `artifacts/pixelstudio: web`.
+- Local clone: `pnpm install --frozen-lockfile`, then `pnpm dev`.
+- Local production build/preview: `pnpm build:studio`, then `pnpm preview:studio`.
+- Focused type check: `pnpm --filter @workspace/pixelstudio run typecheck`.
+- Focused automated checks: `pnpm test:studio`.
+- See `README.md` for prerequisites, exact setup and troubleshooting.
+- The image workflow requires no database, authentication, cloud keys, or API-server workflow.
 
-## Stack
+## Stack and Layout
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspace, React 19, Vite 7, TypeScript; browser-local IndexedDB assets and localStorage settings.
+- `artifacts/pixelstudio/src/components`: creation, gallery, asset editor, settings, app shell.
+- `artifacts/pixelstudio/src/hooks`: shared studio state and object URL lifecycle.
+- `artifacts/pixelstudio/src/lib`: storage/settings, Atomic transport, UI helpers.
+- `artifacts/pixelstudio/server`: local-only Vite bridge middleware.
+- `artifacts/pixelstudio/tests`: client contract, bridge, and portable startup tests.
+- Other API/database workspace packages remain scaffold services, not part of the local image workflow.
 
-## Where things live
+## Architecture Decisions
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- Local Vite development and preview servers provide same-origin forwarding to Atomic Agent. It is deliberately disabled in Replit; a hosted machine cannot connect to the user's loopback endpoint.
+- Local forwarding accepts loopback/private IPv4 destinations and same-origin requests only. Do not turn it into a public unauthenticated proxy.
+- Preserve the existing IndexedDB database/schema and user assets. Downloads and edited copies do not modify originals.
+- Progress stages are illustrative estimates, not telemetry from the Atomic service.
 
-## Architecture decisions
+## User Requirements
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Substantially professional, enterprise-quality UI retaining the requested dark obsidian/glass cyan-violet identity.
+- Clone-and-run local use against `http://127.0.0.1:1337/v1/images/generations`.
+- Corrected model presets: `Qwen-Image-2.1-Turbo` at 14 steps; `Krea 2 Turbo` at 8 steps. Keep IDs editable for the user's exact Atomic setup.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Settings migrations change only exact older built-in model names, never arbitrary custom IDs.
+- Changing browser origin/port creates a separate browser-local gallery. Assets are not synced between Replit and localhost.
+- Local defaults must remain portable; do not reintroduce mandatory Replit env vars, Unix-only install scripts, or Linux-only native package exclusions.
+- Test fixtures verify application transport, not real diffusion-model rendering.

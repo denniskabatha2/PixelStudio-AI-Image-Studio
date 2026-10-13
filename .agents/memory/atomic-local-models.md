@@ -1,12 +1,10 @@
 ---
-name: Atomic Agent local requirements
-description: User's local-first setup requirement and corrected diffusion model names
+name: Atomic model naming provenance
+description: Why model labels in the original pasted directive must not override the user's later correction
 ---
 
-PixelStudio must be ready for the user to clone to their local machine and run against their Atomic Agent endpoint at http://127.0.0.1:1337/v1/images/generations.
+Model labels in the original pasted directive and first prototype are superseded by the user's later explicit correction. Do not revert the presets to earlier labels when consulting that upload.
 
-The user corrected the model names to Qwen-Image-2.1-Turbo (Qwen) and Krea 2 Turbo, superseding the earlier Qwen Image 2.2 Turbo and Kreaturbo2 12B names. They previously specified 14 steps for Qwen and 8 steps for Krea.
+**Why:** The user corrected the Qwen and Krea names after the initial build. That historical correction cannot be inferred merely from the current defaults.
 
-**Why:** The user runs their own diffusion models locally and explicitly supplied the updated model names.
-
-**How to apply:** Preserve clone-and-run local compatibility and use the corrected names for the built-in presets; keep identifiers editable rather than claiming unverified Atomic Agent identifiers are canonical.
+**How to apply:** Consult the current requirements in `replit.md` for the corrected values, and keep Atomic Agent identifiers editable rather than assuming user-facing model labels are universally canonical API IDs.

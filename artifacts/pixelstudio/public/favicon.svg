@@ -1,3 +1,6 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<defs><linearGradient id="g" x1="0" y1="0" x2="180" y2="180"><stop stop-color="#65DFE7"/><stop offset="1" stop-color="#A489F5"/></linearGradient></defs>
+<rect width="180" height="180" rx="36" fill="#101218"/>
+<path d="M90 35 138 62v56l-48 27-48-27V62l48-27Z" stroke="url(#g)" stroke-width="10" />
+<path d="m66 90 17-29 32 1 16 28-17 29-32-1-16-28Z" stroke="url(#g)" stroke-width="7" />
 </svg>

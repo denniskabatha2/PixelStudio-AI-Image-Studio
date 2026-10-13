@@ -1,1 +1,1 @@
-- [Atomic Agent local requirements](atomic-local-models.md) — clone-and-run local usage and corrected Qwen/Krea model names.
+- [Atomic model naming provenance](atomic-local-models.md) — the initial directive's model labels were superseded by the user's later correction.
