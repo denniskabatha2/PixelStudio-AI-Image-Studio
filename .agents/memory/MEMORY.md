@@ -1,0 +1,1 @@
+- [Atomic Agent local requirements](atomic-local-models.md) — clone-and-run local usage and corrected Qwen/Krea model names.
