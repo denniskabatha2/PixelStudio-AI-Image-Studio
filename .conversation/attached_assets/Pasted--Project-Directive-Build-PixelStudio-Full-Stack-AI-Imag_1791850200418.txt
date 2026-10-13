@@ -1,0 +1,51 @@
+# Project Directive: Build "PixelStudio" (Full-Stack AI Image Generation & Editing Suite)
+
+## 1. Overview & Vision
+Build "PixelStudio", a state-of-the-art, hyper-polished full-stack web application for cutting-edge AI image generation, professional photo retouching, and asset management powered by Qwen-Image 2.1 Turbo. The interface must be visually breathtaking, featuring an ultra-modern 3D-layered aesthetic, rich glassmorphism (`backdrop-blur-xl bg-white/5 border border-white/10`), ambient glow lighting, and silky-smooth micro-interactions.
+
+---
+
+## 2. Technical Stack & Architecture
+- **Frontend Framework:** Next.js (App Router) / React with TypeScript.
+- **Styling & UI:** Tailwind CSS, Framer Motion (for fluid physics-based animations, layout transitions, and 3D card tilts), Lucide React (icons), and Three.js / Canvas elements for ambient 3D particle backdrops.
+- **State Management:** Zustand or React Context for managing active image sessions, generation queues, and gallery storage.
+- **Storage/Persistence:** LocalStorage/IndexedDB simulation for saving generated and edited assets, exportable to high-res formats.
+
+---
+
+## 3. Core Features & Architectural Requirements
+
+### A. Immersive 3D Glassmorphism UI & Navigation
+- **Design System:** Deep charcoal/obsidian background (`#0a0a0c`) contrasted with neon cyan/violet ambient mesh gradients. Multi-layered glass panels with real-time mouse-tracking glare/tilt effects.
+- **Animations:** Page transitions, smooth tab switching, modal morphing, and reactive hover states powered by Framer Motion.
+
+### B. High-Resolution Image Generation Engine
+- **Model Standard:** Integrated interface parameters for *Qwen-Image 2.1 Turbo*.
+- **Resolution & Quality Tiers:** Full support for custom scales up to **2K resolution** and heavy uncompressed asset rendering targeting **~5MB files** for maximum fidelity.
+- **Aspect Ratios:** Comprehensive size selector (1:1 Square, 16:9 Cinematic, 9:16 Story/Vertical, 4:3 Portrait, 21:0 Ultra-Wide, and Custom Dimensions).
+
+### C. The 16-Minute Deep-Render Loading Experience (Immersive State)
+- Because high-fidelity 2K generations can take up to 16 minutes on intensive pipelines, build a **Cinematic Multi-Stage Progress Visualizer**:
+  - Interactive neural-network visualizer or particle grid shifting shapes in real-time.
+  - Live milestone progress updates (*"De-noising latent space...", "Calculating volumetric lighting maps...", "Applying skin-pore sub-surface scattering...", "Upscaling to 2K resolution"*).
+  - Estimated Time Remaining (ETR) countdown timer, background minimization capability (floating mini-progress pill), and notification toast when ready.
+
+### D. Advanced Studio Editor (Qwen-Image 2.1 Turbo Integration)
+- **Non-Destructive Editing Suite:** Sliders and adjustments for exposure, contrast, micro-sharpening, color grading, grain, and lens blur (bokeh).
+- **Built-In 20-Prompt Cinematic Preset Library:** A dedicated drawer housing a pre-loaded sequence of the 20 extreme editing and transformation prompts (e.g., *Macro Lens Transformation, Anamorphic Cinematic Flare, Volumetric Golden Hour Haze, Moody Neo-Noir, High-Speed Panning Blur*, etc.) allowing users to apply professional stylistic transformations with a single click.
+- **Save & Export Engine:** Instant snapshot rendering, watermark toggle, resolution scaler (up to 2K), and direct save-to-gallery or local download (~5MB high-res export).
+
+### E. Complete Gallery & Asset Management
+- **Masonry Grid Layout:** Categorized views for "Generated", "Edited", and "Favorites".
+- **Asset Modal:** Full-screen inspection modal with metadata viewer (prompt used, generation timestamp, resolution, file size, seed value, and applied edits).
+- **Batch Operations:** Multi-select for bulk downloading or deleting.
+
+### F. Bonus Feature (+1): AI Prompt Optimizer & Smart Variation Generator
+- Includes an "Enhance Prompt" magic wand button that takes basic user keywords and expands them into rich, scientifically and photographically accurate professional prompts (incorporating camera lenses, lighting dynamics, texture details, and color grading metadata automatically).
+
+---
+
+## 4. Delivery Guidelines
+1. Write clean, modular, and fully typed TypeScript code.
+2. Ensure components are responsive and performant, avoiding layout shifts during complex Framer Motion animations.
+3. Include clear mock APIs and asynchronous state handling to simulate realistic generation and editing wait times with fallback error states.

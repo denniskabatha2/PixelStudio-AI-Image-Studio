@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "PixelStudio"
+description = "A full-stack-feeling AI image studio for generating and editing images with local Atomic Agent models, organizing results into a personal gallery, and exporting images from the browser."
+version = "1.0.0"
+id = "artifacts/pixelstudio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21502
+
+[services.development]
+run = "pnpm --filter @workspace/pixelstudio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pixelstudio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/pixelstudio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21502"
+BASE_PATH = "/"
