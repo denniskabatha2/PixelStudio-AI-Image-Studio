@@ -573,6 +573,8 @@ input[type=range] { accent-color: #63d6e2; }
     rgba(7, 8, 12, .82);
 }
 
+.preview-panel { min-height: 0; }
+
 .neural-field {
   position: absolute;
   inset: 0;
